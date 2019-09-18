@@ -39,7 +39,7 @@ public class CloudZuulFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext currentContext = RequestContext.getCurrentContext();
         HttpServletRequest request = currentContext.getRequest();
-        Object token = request.getAttribute("token");
+        Object token = request.getParameter("token");
         if (token == null ) {
             //不在转发
             currentContext.setSendZuulResponse(false);
