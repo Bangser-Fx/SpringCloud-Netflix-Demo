@@ -10,14 +10,25 @@
         <relativePath>../springcloud-dependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>springcloud-service</artifactId>
+    <artifactId>springcloud-zipkin</artifactId>
     <packaging>jar</packaging>
 
-    <name>springcloud-service</name>
-
+    <name>springcloud-zipkin</name>
 
     <dependencies>
         <!-- Spring Boot Begin -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -27,15 +38,23 @@
 
         <!-- Spring Cloud Begin -->
         <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-autoconfigure-ui</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
         <!-- Spring Cloud End -->
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
@@ -44,7 +63,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.fx.springcloud.service.ServiceApplication</mainClass>
+                    <mainClass>com.fx.springcloud.zipkin.SpringcloudZipkinApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
